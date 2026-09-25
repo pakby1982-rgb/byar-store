@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /owner
+Disallow: /admin
+Sitemap: https://byar-general-store.netlify.app/sitemap.xml

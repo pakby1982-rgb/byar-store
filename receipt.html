@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receipt</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:420px;margin:24px auto;padding:0 16px;color:#1d2a25}
+h1{font-size:1.3rem;margin:0}.muted{opacity:.7;font-size:.9rem}
+table{width:100%;border-collapse:collapse;margin:14px 0}td{padding:4px 0;border-bottom:1px dashed #ccc}
+.total{font-weight:800;font-size:1.1rem;display:flex;justify-content:space-between;margin-top:8px}
+button{margin-top:16px;padding:10px 16px;font:inherit;cursor:pointer}
+@media print{button{display:none}}
+</style></head><body>
+<div id="r">Loading…</div>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+fetch("/api/receipt/" + encodeURIComponent(id)).then(r => r.ok ? r.json() : Promise.reject()).then(o => {
+  document.getElementById("r").innerHTML = `<h1>BYAR GENERAL STORE</h1><p class="muted">Order #${esc(o.id)} · ${new Date(o.time).toLocaleString()}</p>
+    <p>${esc(o.name) || ""} · ${esc(o.mode)}${o.address ? " – " + esc(o.address) : ""}</p>
+    <table>${o.items.map(i => `<tr><td>${esc(i.name)} x${i.qty}</td><td style="text-align:right">${esc(i.price.toFixed(2))}</td></tr>`).join("")}</table>
+    <div class="total"><span>Total</span><span>${o.total.toFixed(2)}</span></div>
+    <p class="muted">Payment: ${esc(o.payment)} · Status: ${esc(o.status)}</p>
+    <button onclick="print()">Print</button>`;
+}).catch(() => { document.getElementById("r").textContent = "Receipt not found."; });
+</script></body></html>

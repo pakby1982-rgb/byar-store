@@ -1,0 +1,139 @@
+{
+  "store": {
+    "hours": "Mon–Sat 7:00–21:00, Sun 8:00–18:00",
+    "address": "Add your street address here",
+    "phone": "+1 000 000 0000",
+    "payment": {
+      "methods": [
+        "Cash on pickup or delivery",
+        "JazzCash",
+        "Easypaisa",
+        "Bank transfer"
+      ],
+      "transferNote": "Transfer to: add your bank or mobile money details here. Send the receipt on WhatsApp.",
+      "payLink": ""
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Rice (1 kg)",
+      "cat": "Grocery",
+      "price": 2.5,
+      "inStock": true,
+      "image": "",
+      "name_ur": "چاول (1 کلو)",
+      "cat_ur": "گروسری"
+    },
+    {
+      "id": 2,
+      "name": "Cooking oil (1 L)",
+      "cat": "Grocery",
+      "price": 3.2,
+      "inStock": true,
+      "image": "",
+      "name_ur": "کوکنگ آئل (1 لیٹر)",
+      "cat_ur": "گروسری"
+    },
+    {
+      "id": 3,
+      "name": "Sugar (1 kg)",
+      "cat": "Grocery",
+      "price": 1.8,
+      "inStock": false,
+      "image": "",
+      "name_ur": "چینی (1 کلو)",
+      "cat_ur": "گروسری"
+    },
+    {
+      "id": 4,
+      "name": "Tea leaves (250 g)",
+      "cat": "Grocery",
+      "price": 2.1,
+      "inStock": true,
+      "image": "",
+      "name_ur": "چائے کی پتی (250 گرام)",
+      "cat_ur": "گروسری"
+    },
+    {
+      "id": 5,
+      "name": "Bottled water (1.5 L)",
+      "cat": "Drinks",
+      "price": 0.8,
+      "inStock": true,
+      "image": "",
+      "name_ur": "بوتل بند پانی (1.5 لیٹر)",
+      "cat_ur": "مشروبات"
+    },
+    {
+      "id": 6,
+      "name": "Soft drink (500 ml)",
+      "cat": "Drinks",
+      "price": 1.0,
+      "inStock": true,
+      "image": "",
+      "name_ur": "سوفٹ ڈرنک (500 ملی)",
+      "cat_ur": "مشروبات"
+    },
+    {
+      "id": 7,
+      "name": "Laundry soap bar",
+      "cat": "Household",
+      "price": 0.9,
+      "inStock": true,
+      "image": "",
+      "name_ur": "کپڑے دھونے کا صابن",
+      "cat_ur": "گھریلو"
+    },
+    {
+      "id": 8,
+      "name": "Dish liquid (500 ml)",
+      "cat": "Household",
+      "price": 1.7,
+      "inStock": true,
+      "image": "",
+      "name_ur": "برتن دھونے کا لیکوڈ (500 ملی)",
+      "cat_ur": "گھریلو"
+    },
+    {
+      "id": 9,
+      "name": "Notebook (A5)",
+      "cat": "Stationery",
+      "price": 1.2,
+      "inStock": true,
+      "image": "",
+      "name_ur": "نوٹ بک (A5)",
+      "cat_ur": "سٹیشنری"
+    },
+    {
+      "id": 10,
+      "name": "Ballpoint pens (5)",
+      "cat": "Stationery",
+      "price": 1.0,
+      "inStock": true,
+      "image": "",
+      "name_ur": "بال پین (5 عدد)",
+      "cat_ur": "سٹیشنری"
+    },
+    {
+      "id": 11,
+      "name": "Toothpaste",
+      "cat": "Personal care",
+      "price": 1.9,
+      "inStock": true,
+      "image": "",
+      "name_ur": "ٹوتھ پیسٹ",
+      "cat_ur": "ذاتی نگہداشت"
+    },
+    {
+      "id": 12,
+      "name": "Body soap",
+      "cat": "Personal care",
+      "price": 1.1,
+      "inStock": true,
+      "image": "",
+      "name_ur": "نہانے کا صابن",
+      "cat_ur": "ذاتی نگہداشت"
+    }
+  ]
+}
