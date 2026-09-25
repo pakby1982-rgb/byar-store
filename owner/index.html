@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>BYAR Owner</title>
+<style>
+:root{--green:#1f6b4f;--ink:#1d2a25;--paper:#f7f8f5;--line:#d9dfd8;--sun:#f2c230;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--ink:#eef2ee;--paper:#141a17;--line:#2c3832;--card:#1c2521}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,sans-serif;line-height:1.5}
+.awning{height:16px;background:repeating-linear-gradient(90deg,var(--green) 0 28px,#fff 28px 56px);border-bottom:4px solid var(--sun)}
+main{max-width:900px;margin:0 auto;padding:16px 20px 60px}h1{margin:8px 0}
+input,select,button{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:inherit}
+button{cursor:pointer}.pri{background:var(--green);color:#fff;border-color:var(--green)}
+.tabs{display:flex;gap:8px;margin:12px 0}.tabs button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:10px}
+.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.muted{opacity:.7;font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.big{font-size:1.6rem;font-weight:800}
+table{width:100%;border-collapse:collapse}td{padding:6px 4px;border-bottom:1px solid var(--line)}td input{width:90px}
+.err{color:#c0392b}[hidden]{display:none!important}
+</style></head><body>
+<div class="awning"></div>
+<main>
+<h1>BYAR owner</h1>
+<div id="login"><input type="password" id="pw" placeholder="Owner password" aria-label="Owner password"> <button class="pri" id="go">Log in</button></div>
+<p class="err" id="err"></p>
+<div id="app" hidden>
+  <div class="tabs" id="tabs">
+    <button data-t="orders" aria-pressed="true">Orders</button><button data-t="report" aria-pressed="false">Sales</button><button data-t="expenses" aria-pressed="false">Expenses</button><button id="expOrders">Export orders CSV</button><button id="expExp">Export expenses CSV</button><button data-t="stock" aria-pressed="false">Stock</button><button id="refresh">Refresh</button>
+  </div>
+  <section id="orders"></section>
+  <section id="report" hidden></section>
+  <section id="expenses" hidden></section>
+<section id="stock" hidden></section>
+</div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let key = ""; try { key = sessionStorage.getItem("byar-key") || ""; } catch (e) {}
+let ORDERS = [], STOCK = {}, EXP = [], CAT = { products: [], store: {} };
+const api = async (p, body) => {
+  const r = await fetch("/api/" + p, { method: body ? "POST" : "GET", headers: { "x-admin-key": key, "content-type": "application/json" }, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 401) throw new Error("Wrong password");
+  let d = {}; try { d = await r.json(); } catch (e) { throw new Error("The store server is not set up yet (see README)"); }
+  if (!r.ok) throw new Error(d.error || "Something went wrong");
+  return d;
+};
+const cur = () => (CAT.store && CAT.store.currency) || "$";
+const money = n => cur() + Number(n).toFixed(2);
+
+async function load() {
+  $("err").textContent = "";
+  try {
+    [ORDERS, STOCK, EXP] = await Promise.all([api("orders"), api("stock"), api("expenses")]);
+    CAT = await (await fetch("/products.json")).json();
+    try { sessionStorage.setItem("byar-key", key); } catch (e) {}
+    $("login").hidden = true; $("app").hidden = false;
+    renderOrders(); renderReport(); renderExpenses(); renderStock();
+  } catch (e) { $("err").textContent = e.message; $("app").hidden = true; $("login").hidden = false; }
+}
+function renderOrders() {
+  $("orders").innerHTML = ORDERS.length ? ORDERS.map(o => `<div class="card"><div class="top"><b>#${esc(o.id)}</b> <a href="/receipt.html?id=${encodeURIComponent(o.id)}" target="_blank">Receipt</a><span class="muted">${new Date(o.time).toLocaleString()}</span></div>
+    <div>${esc(o.name) || "No name"} · ${esc(o.mode)}${o.mode === "Delivery" ? ": " + esc(o.address) : ""}</div>
+    ${o.tid ? `<div class="muted">TID: ${esc(o.tid)} — check your ${esc(o.payment)} app, then mark Paid</div>` : ""}
+    <div class="muted">${o.items.map(i => esc(i.name) + " x" + i.qty).join(", ")}</div>
+    <div class="top"><span><b>${money(o.total)}</b> · ${esc(o.payment)}</span>
+    <select data-id="${esc(o.id)}" aria-label="Order status">${["New","Awaiting payment check","Paid","Ready","Done","Cancelled"].map(s => `<option${s === o.status ? " selected" : ""}>${s}</option>`).join("")}</select></div></div>`).join("") : "<p>No orders yet. New orders appear here.</p>";
+}
+function renderReport() {
+  const live = ORDERS.filter(o => o.status !== "Cancelled");
+  const today = live.filter(o => new Date(o.time).toDateString() === new Date().toDateString());
+  const sum = a => a.reduce((t, o) => t + o.total, 0);
+  const qty = {}; live.forEach(o => o.items.forEach(i => qty[i.name] = (qty[i.name] || 0) + i.qty));
+  const spent = EXP.reduce((t, e) => t + e.amount, 0);
+  const profit = sum(live) - spent;
+  const top = Object.entries(qty).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  const low = CAT.products.filter(p => STOCK[p.id] !== undefined && STOCK[p.id] <= 5);
+  $("report").innerHTML = `<div class="stats"><div class="card"><div class="muted">Today</div><div class="big">${money(sum(today))}</div>${today.length} orders</div>
+    <div class="card"><div class="muted">All time</div><div class="big">${money(sum(live))}</div>${live.length} orders</div>
+    <div class="card"><div class="muted">Profit (sales − expenses)</div><div class="big">${money(profit)}</div>${money(spent)} in expenses</div></div>
+    <div class="card"><b>Best sellers</b><br>${top.length ? top.map(t => esc(t[0]) + " x" + t[1]).join("<br>") : "No sales yet."}</div>
+    <div class="card"><b>Running low (5 or fewer)</b><br>${low.length ? low.map(p => esc(p.name) + ": " + STOCK[p.id]).join("<br>") : "Nothing is running low."}</div>`;
+}
+function renderExpenses() {
+  $("expenses").innerHTML = `<p class="muted">Log stock purchases, rent, or anything else spent on the store.</p>
+    <p><input id="elabel" placeholder="What for"> <input id="eamt" type="number" min="0" step="0.01" placeholder="Amount"> <button class="pri" id="eadd">Add</button></p>` +
+    (EXP.length ? `<table>${EXP.map(e => `<tr><td>${new Date(e.time).toLocaleDateString()}</td><td>${esc(e.label)}</td><td>${money(e.amount)}</td><td><button data-del="${esc(e.id)}">Delete</button></td></tr>`).join("")}</table>` : "<p>No expenses logged yet.</p>");
+}
+function renderStock() {
+  $("stock").innerHTML = `<p class="muted">Enter how many you have. Leave blank to not track an item. Orders reduce the count automatically.</p><table>` +
+    CAT.products.map(p => `<tr><td>${esc(p.name)}</td><td><input type="number" min="0" data-p="${p.id}" value="${STOCK[p.id] === undefined ? "" : STOCK[p.id]}" aria-label="Stock for ${esc(p.name)}"></td></tr>`).join("") +
+    `</table><p><button class="pri" id="saveStock">Save stock</button> <span id="saved"></span></p>`;
+}
+function toCSV(rows, cols) {
+  const esc2 = v => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
+  return [cols.map(c => c.h).join(",")].concat(rows.map(r => cols.map(c => esc2(c.v(r))).join(","))).join("\r\n");
+}
+function downloadCSV(name, csv) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+$("go").onclick = () => { key = $("pw").value; load(); };
+$("refresh").onclick = load;
+$("tabs").onclick = e => { const t = e.target.dataset.t; if (!t) return;
+  ["orders","report","expenses","stock"].forEach(x => { $(x).hidden = x !== t; });
+  document.querySelectorAll("#tabs [data-t]").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === t)); };
+$("expOrders").onclick = () => downloadCSV("byar-orders.csv", toCSV(ORDERS, [
+  { h: "Order", v: r => r.id }, { h: "Date", v: r => new Date(r.time).toLocaleString() },
+  { h: "Customer", v: r => r.name }, { h: "Mode", v: r => r.mode }, { h: "Address", v: r => r.address },
+  { h: "Items", v: r => r.items.map(i => i.name + " x" + i.qty).join("; ") },
+  { h: "Total", v: r => r.total }, { h: "Payment", v: r => r.payment }, { h: "Status", v: r => r.status }
+]));
+$("expExp").onclick = () => downloadCSV("byar-expenses.csv", toCSV(EXP, [
+  { h: "Date", v: r => new Date(r.time).toLocaleString() }, { h: "For", v: r => r.label }, { h: "Amount", v: r => r.amount }
+]));
+$("orders").onchange = async e => { if (!e.target.dataset.id) return;
+  try { await api("status", { id: e.target.dataset.id, status: e.target.value }); await load(); } catch (x) { $("err").textContent = x.message; } };
+$("expenses").onclick = async e => {
+  if (e.target.id === "eadd") {
+    try { await api("expenses", { label: $("elabel").value, amount: parseFloat($("eamt").value) }); EXP = await api("expenses"); renderExpenses(); renderReport(); }
+    catch (x) { $("err").textContent = x.message; }
+  }
+  if (e.target.dataset.del) {
+    await fetch("/api/expenses/" + e.target.dataset.del, { method: "DELETE", headers: { "x-admin-key": key } });
+    EXP = await api("expenses"); renderExpenses(); renderReport();
+  }
+};
+$("stock").onclick = async e => { if (e.target.id !== "saveStock") return;
+  const levels = {}; document.querySelectorAll("#stock input").forEach(i => { if (i.value !== "") levels[i.dataset.p] = Math.max(0, parseInt(i.value, 10) || 0); });
+  try { await api("stock", { levels }); STOCK = levels; renderReport(); $("saved").textContent = "Saved"; } catch (x) { $("err").textContent = x.message; } };
+if (key) load();
+</script></body></html>

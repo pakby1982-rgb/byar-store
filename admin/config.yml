@@ -1,0 +1,43 @@
+# Decap CMS: lets the owner edit products.json in a browser at /admin
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <- change this
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: store
+    label: Store
+    files:
+      - name: products
+        label: Products and store info
+        file: products.json
+        format: json
+        fields:
+          - label: Store info
+            name: store
+            widget: object
+            fields:
+              - { label: Opening hours, name: hours, widget: string }
+              - { label: Address, name: address, widget: string }
+              - { label: Phone, name: phone, widget: string }
+              - label: Payment
+                name: payment
+                widget: object
+                fields:
+                  - { label: Payment methods, name: methods, widget: list, field: { label: Method, name: method, widget: string } }
+                  - { label: Transfer instructions, name: transferNote, widget: text, required: false }
+                  - { label: Online payment link (https, e.g. Stripe or PayPal), name: payLink, widget: string, required: false }
+          - label: Products
+            name: products
+            widget: list
+            summary: "{{fields.name}} ({{fields.price}})"
+            fields:
+              - { label: ID (unique number), name: id, widget: number, value_type: int }
+              - { label: Name, name: name, widget: string }
+              - { label: Category, name: cat, widget: string }
+              - { label: Price, name: price, widget: number, value_type: float, min: 0 }
+              - { label: In stock, name: inStock, widget: boolean, default: true }
+              - { label: Photo, name: image, widget: image, required: false }
