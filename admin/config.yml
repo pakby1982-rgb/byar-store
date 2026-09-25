@@ -1,7 +1,7 @@
 # Decap CMS: lets the owner edit products.json in a browser at /admin
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <- change this
+  repo: pakby1982-rgb/byar-store  
   branch: main
 
 media_folder: "images"
