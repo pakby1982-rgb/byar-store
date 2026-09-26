@@ -2,7 +2,7 @@
   "store": {
     "hours": "Mon–Sat 7:00–21:00, Sun 8:00–18:00",
     "address": "Add your street address here",
-    "phone": "+1 000 000 0000",
+    "phone": "+92 319 9000 856",
     "payment": {
       "methods": [
         "Cash on pickup or delivery",
@@ -12,128 +12,309 @@
       ],
       "transferNote": "Transfer to: add your bank or mobile money details here. Send the receipt on WhatsApp.",
       "payLink": ""
-    }
+    },
+    "currency": "Rs "
   },
   "products": [
     {
       "id": 1,
       "name": "Rice (1 kg)",
-      "cat": "Grocery",
-      "price": 2.5,
-      "inStock": true,
-      "image": "",
       "name_ur": "چاول (1 کلو)",
-      "cat_ur": "گروسری"
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 280,
+      "inStock": true,
+      "image": ""
     },
     {
       "id": 2,
-      "name": "Cooking oil (1 L)",
+      "name": "Wheat flour / Atta (1 kg)",
+      "name_ur": "آٹا (1 کلو)",
       "cat": "Grocery",
-      "price": 3.2,
+      "cat_ur": "گروسری",
+      "price": 140,
       "inStock": true,
-      "image": "",
-      "name_ur": "کوکنگ آئل (1 لیٹر)",
-      "cat_ur": "گروسری"
+      "image": ""
     },
     {
       "id": 3,
       "name": "Sugar (1 kg)",
-      "cat": "Grocery",
-      "price": 1.8,
-      "inStock": false,
-      "image": "",
       "name_ur": "چینی (1 کلو)",
-      "cat_ur": "گروسری"
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 175,
+      "inStock": true,
+      "image": ""
     },
     {
       "id": 4,
-      "name": "Tea leaves (250 g)",
+      "name": "Cooking oil (1 L)",
+      "name_ur": "کوکنگ آئل (1 لیٹر)",
       "cat": "Grocery",
-      "price": 2.1,
+      "cat_ur": "گروسری",
+      "price": 580,
       "inStock": true,
-      "image": "",
-      "name_ur": "چائے کی پتی (250 گرام)",
-      "cat_ur": "گروسری"
+      "image": ""
     },
     {
       "id": 5,
-      "name": "Bottled water (1.5 L)",
-      "cat": "Drinks",
-      "price": 0.8,
+      "name": "Ghee (1 kg)",
+      "name_ur": "گھی (1 کلو)",
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 780,
       "inStock": true,
-      "image": "",
-      "name_ur": "بوتل بند پانی (1.5 لیٹر)",
-      "cat_ur": "مشروبات"
+      "image": ""
     },
     {
       "id": 6,
-      "name": "Soft drink (500 ml)",
-      "cat": "Drinks",
-      "price": 1.0,
+      "name": "Tea leaves (190 g)",
+      "name_ur": "چائے کی پتی (190 گرام)",
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 460,
       "inStock": true,
-      "image": "",
-      "name_ur": "سوفٹ ڈرنک (500 ملی)",
-      "cat_ur": "مشروبات"
+      "image": ""
     },
     {
       "id": 7,
-      "name": "Laundry soap bar",
-      "cat": "Household",
-      "price": 0.9,
+      "name": "Chana daal (1 kg)",
+      "name_ur": "چنے کی دال (1 کلو)",
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 290,
       "inStock": true,
-      "image": "",
-      "name_ur": "کپڑے دھونے کا صابن",
-      "cat_ur": "گھریلو"
+      "image": ""
     },
     {
       "id": 8,
-      "name": "Dish liquid (500 ml)",
-      "cat": "Household",
-      "price": 1.7,
+      "name": "Masoor daal (1 kg)",
+      "name_ur": "مسور کی دال (1 کلو)",
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 330,
       "inStock": true,
-      "image": "",
-      "name_ur": "برتن دھونے کا لیکوڈ (500 ملی)",
-      "cat_ur": "گھریلو"
+      "image": ""
     },
     {
       "id": 9,
-      "name": "Notebook (A5)",
-      "cat": "Stationery",
-      "price": 1.2,
+      "name": "Salt (800 g)",
+      "name_ur": "نمک (800 گرام)",
+      "cat": "Grocery",
+      "cat_ur": "گروسری",
+      "price": 60,
       "inStock": true,
-      "image": "",
-      "name_ur": "نوٹ بک (A5)",
-      "cat_ur": "سٹیشنری"
+      "image": ""
     },
     {
       "id": 10,
-      "name": "Ballpoint pens (5)",
-      "cat": "Stationery",
-      "price": 1.0,
+      "name": "Red chili powder (200 g)",
+      "name_ur": "لال مرچ پاؤڈر (200 گرام)",
+      "cat": "Spices",
+      "cat_ur": "مصالحہ جات",
+      "price": 190,
       "inStock": true,
-      "image": "",
-      "name_ur": "بال پین (5 عدد)",
-      "cat_ur": "سٹیشنری"
+      "image": ""
     },
     {
       "id": 11,
-      "name": "Toothpaste",
-      "cat": "Personal care",
-      "price": 1.9,
+      "name": "Turmeric powder (200 g)",
+      "name_ur": "ہلدی پاؤڈر (200 گرام)",
+      "cat": "Spices",
+      "cat_ur": "مصالحہ جات",
+      "price": 160,
       "inStock": true,
-      "image": "",
-      "name_ur": "ٹوتھ پیسٹ",
-      "cat_ur": "ذاتی نگہداشت"
+      "image": ""
     },
     {
       "id": 12,
-      "name": "Body soap",
-      "cat": "Personal care",
-      "price": 1.1,
+      "name": "Garam masala (100 g)",
+      "name_ur": "گرم مصالحہ (100 گرام)",
+      "cat": "Spices",
+      "cat_ur": "مصالحہ جات",
+      "price": 210,
       "inStock": true,
-      "image": "",
+      "image": ""
+    },
+    {
+      "id": 13,
+      "name": "Milk (1 L packet)",
+      "name_ur": "دودھ (1 لیٹر پیکٹ)",
+      "cat": "Dairy & Bakery",
+      "cat_ur": "ڈیری اور بیکری",
+      "price": 230,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 14,
+      "name": "Yogurt (1 kg)",
+      "name_ur": "دہی (1 کلو)",
+      "cat": "Dairy & Bakery",
+      "cat_ur": "ڈیری اور بیکری",
+      "price": 260,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 15,
+      "name": "Eggs (dozen)",
+      "name_ur": "انڈے (درجن)",
+      "cat": "Dairy & Bakery",
+      "cat_ur": "ڈیری اور بیکری",
+      "price": 360,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 16,
+      "name": "Bread loaf",
+      "name_ur": "بریڈ",
+      "cat": "Dairy & Bakery",
+      "cat_ur": "ڈیری اور بیکری",
+      "price": 180,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 17,
+      "name": "Bottled water (1.5 L)",
+      "name_ur": "بوتل بند پانی (1.5 لیٹر)",
+      "cat": "Drinks",
+      "cat_ur": "مشروبات",
+      "price": 80,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 18,
+      "name": "Soft drink (1.5 L)",
+      "name_ur": "سوفٹ ڈرنک (1.5 لیٹر)",
+      "cat": "Drinks",
+      "cat_ur": "مشروبات",
+      "price": 180,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 19,
+      "name": "Juice (1 L)",
+      "name_ur": "جوس (1 لیٹر)",
+      "cat": "Drinks",
+      "cat_ur": "مشروبات",
+      "price": 250,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 20,
+      "name": "Potato chips (packet)",
+      "name_ur": "چپس (پیکٹ)",
+      "cat": "Snacks",
+      "cat_ur": "سنیکس",
+      "price": 100,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 21,
+      "name": "Biscuits (packet)",
+      "name_ur": "بسکٹ (پیکٹ)",
+      "cat": "Snacks",
+      "cat_ur": "سنیکس",
+      "price": 120,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 22,
+      "name": "Chocolate bar",
+      "name_ur": "چاکلیٹ",
+      "cat": "Snacks",
+      "cat_ur": "سنیکس",
+      "price": 150,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 23,
+      "name": "Laundry detergent (1 kg)",
+      "name_ur": "کپڑے دھونے کا صابن پاؤڈر (1 کلو)",
+      "cat": "Household",
+      "cat_ur": "گھریلو",
+      "price": 450,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 24,
+      "name": "Dish washing bar",
+      "name_ur": "برتن دھونے کا صابن",
+      "cat": "Household",
+      "cat_ur": "گھریلو",
+      "price": 60,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 25,
+      "name": "Matchbox",
+      "name_ur": "ماچس",
+      "cat": "Household",
+      "cat_ur": "گھریلو",
+      "price": 20,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 26,
+      "name": "Bath soap",
       "name_ur": "نہانے کا صابن",
-      "cat_ur": "ذاتی نگہداشت"
+      "cat": "Personal care",
+      "cat_ur": "ذاتی نگہداشت",
+      "price": 95,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 27,
+      "name": "Toothpaste",
+      "name_ur": "ٹوتھ پیسٹ",
+      "cat": "Personal care",
+      "cat_ur": "ذاتی نگہداشت",
+      "price": 250,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 28,
+      "name": "Shampoo (bottle)",
+      "name_ur": "شیمپو (بوتل)",
+      "cat": "Personal care",
+      "cat_ur": "ذاتی نگہداشت",
+      "price": 450,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 29,
+      "name": "Notebook (A5)",
+      "name_ur": "نوٹ بک (A5)",
+      "cat": "Stationery",
+      "cat_ur": "سٹیشنری",
+      "price": 90,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 30,
+      "name": "Ballpoint pens (5)",
+      "name_ur": "بال پین (5 عدد)",
+      "cat": "Stationery",
+      "cat_ur": "سٹیشنری",
+      "price": 100,
+      "inStock": true,
+      "image": ""
     }
   ]
 }
