@@ -315,6 +315,206 @@
       "price": 100,
       "inStock": true,
       "image": ""
+    },
+    {
+      "id": 31,
+      "name": "USB flash drive (32 GB)",
+      "name_ur": "یو ایس بی فلیش ڈرائیو (32 جی بی)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 800,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 32,
+      "name": "USB flash drive (64 GB)",
+      "name_ur": "یو ایس بی فلیش ڈرائیو (64 جی بی)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 1300,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 33,
+      "name": "Wired USB mouse",
+      "name_ur": "وائرڈ یو ایس بی ماؤس",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 450,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 34,
+      "name": "Wireless mouse",
+      "name_ur": "وائرلیس ماؤس",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 1100,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 35,
+      "name": "USB keyboard",
+      "name_ur": "یو ایس بی کی بورڈ",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 1400,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 36,
+      "name": "Wireless keyboard & mouse combo",
+      "name_ur": "وائرلیس کی بورڈ اور ماؤس کمبو",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 2600,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 37,
+      "name": "Mouse pad",
+      "name_ur": "ماؤس پیڈ",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 250,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 38,
+      "name": "HDMI cable (1.5 m)",
+      "name_ur": "ایچ ڈی ایم آئی کیبل (1.5 میٹر)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 450,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 39,
+      "name": "USB extension cable",
+      "name_ur": "یو ایس بی ایکسٹینشن کیبل",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 300,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 40,
+      "name": "Laptop cooling pad",
+      "name_ur": "لیپ ٹاپ کولنگ پیڈ",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 2200,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 41,
+      "name": "Laptop stand (adjustable)",
+      "name_ur": "لیپ ٹاپ سٹینڈ (ایڈجسٹ ایبل)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 1800,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 42,
+      "name": "Webcam (HD)",
+      "name_ur": "ویب کیم (ایچ ڈی)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 3200,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 43,
+      "name": "Wired earphones with mic",
+      "name_ur": "وائرڈ ایئرفون بمع مائیک",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 350,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 44,
+      "name": "USB headphones with mic",
+      "name_ur": "یو ایس بی ہیڈ فون بمع مائیک",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 1600,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 45,
+      "name": "Power bank (10000 mAh)",
+      "name_ur": "پاور بینک (10000 ایم اے ایچ)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 2800,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 46,
+      "name": "Extension board (4 socket)",
+      "name_ur": "ایکسٹینشن بورڈ (4 ساکٹ)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 900,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 47,
+      "name": "Memory card (32 GB)",
+      "name_ur": "میموری کارڈ (32 جی بی)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 900,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 48,
+      "name": "Card reader (multi-slot)",
+      "name_ur": "کارڈ ریڈر (ملٹی سلاٹ)",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 500,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 49,
+      "name": "Laptop bag",
+      "name_ur": "لیپ ٹاپ بیگ",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 2500,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 50,
+      "name": "Screen cleaning kit",
+      "name_ur": "سکرین کلیننگ کٹ",
+      "cat": "Computer Accessories",
+      "cat_ur": "کمپیوٹر لوازمات",
+      "price": 400,
+      "inStock": true,
+      "image": ""
     }
   ]
 }
