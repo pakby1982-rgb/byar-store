@@ -515,6 +515,106 @@
       "price": 400,
       "inStock": true,
       "image": ""
+    },
+    {
+      "id": 51,
+      "name": "Wired earphones (basic)",
+      "name_ur": "وائرڈ ایئرفون (بنیادی)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 150,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 52,
+      "name": "Handsfree with mic (budget)",
+      "name_ur": "ہینڈز فری بمع مائیک (سستا)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 250,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 53,
+      "name": "Bluetooth wireless earbuds (TWS)",
+      "name_ur": "بلوٹوتھ وائرلیس ایئربڈز (ٹی ڈبلیو ایس)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 1800,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 54,
+      "name": "Bluetooth neckband earphones",
+      "name_ur": "بلوٹوتھ نیک بینڈ ایئرفون",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 1200,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 55,
+      "name": "Over-ear Bluetooth headphones",
+      "name_ur": "اوور ایئر بلوٹوتھ ہیڈ فون",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 3500,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 56,
+      "name": "Gaming headset with mic (wired)",
+      "name_ur": "گیمنگ ہیڈ سیٹ بمع مائیک (وائرڈ)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 2200,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 57,
+      "name": "Sports earphones (sweatproof)",
+      "name_ur": "سپورٹس ایئرفون (پسینہ روک)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 900,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 58,
+      "name": "Earbud replacement tips (pack)",
+      "name_ur": "ایئربڈ ٹپس (پیک)",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 150,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 59,
+      "name": "Headphone splitter cable",
+      "name_ur": "ہیڈ فون سپلٹر کیبل",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 200,
+      "inStock": true,
+      "image": ""
+    },
+    {
+      "id": 60,
+      "name": "Mini Bluetooth speaker",
+      "name_ur": "منی بلوٹوتھ سپیکر",
+      "cat": "Headphones & Earbuds",
+      "cat_ur": "ہیڈ فون اور ایئربڈز",
+      "price": 2000,
+      "inStock": true,
+      "image": ""
     }
   ]
 }
