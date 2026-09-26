@@ -14,7 +14,7 @@ button{margin-top:16px;padding:10px 16px;font:inherit;cursor:pointer}
 const id = new URLSearchParams(location.search).get("id");
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 fetch("/api/receipt/" + encodeURIComponent(id)).then(r => r.ok ? r.json() : Promise.reject()).then(o => {
-  document.getElementById("r").innerHTML = `<h1>BYAR GENERAL STORE</h1><p class="muted">Order #${esc(o.id)} · ${new Date(o.time).toLocaleString()}</p>
+  document.getElementById("r").innerHTML = `<h1>BYAR ONLINE STORE</h1><p class="muted">Order #${esc(o.id)} · ${new Date(o.time).toLocaleString()}</p>
     <p>${esc(o.name) || ""} · ${esc(o.mode)}${o.address ? " – " + esc(o.address) : ""}</p>
     <table>${o.items.map(i => `<tr><td>${esc(i.name)} x${i.qty}</td><td style="text-align:right">${esc(i.price.toFixed(2))}</td></tr>`).join("")}</table>
     <div class="total"><span>Total</span><span>${o.total.toFixed(2)}</span></div>

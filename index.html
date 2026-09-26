@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BYAR GENERAL STORE</title>
-<meta name="description" content="Everyday essentials from BYAR General Store. Build your list and order by WhatsApp.">
+<title>BYAR ONLINE STORE</title>
+<meta name="description" content="Everyday essentials from BYAR Online Store. Build your list and order by WhatsApp.">
 <meta name="theme-color" content="#1f6b4f">
 <link rel="canonical" href="https://byar-general-store.netlify.app/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="BYAR GENERAL STORE">
-<meta property="og:title" content="BYAR GENERAL STORE">
+<meta property="og:site_name" content="BYAR ONLINE STORE">
+<meta property="og:title" content="BYAR ONLINE STORE">
 <meta property="og:description" content="Everyday grocery, household and personal care essentials. Order in minutes and get it by WhatsApp.">
 <meta property="og:image" content="https://byar-general-store.netlify.app/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://byar-general-store.netlify.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BYAR GENERAL STORE">
+<meta name="twitter:title" content="BYAR ONLINE STORE">
 <meta name="twitter:description" content="Everyday grocery, household and personal care essentials. Order in minutes and get it by WhatsApp.">
 <meta name="twitter:image" content="https://byar-general-store.netlify.app/images/og-cover.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"GroceryStore","name":"BYAR GENERAL STORE","image":"https://byar-general-store.netlify.app/images/og-cover.jpg","url":"https://byar-general-store.netlify.app/","priceRange":"$"}
+{"@context":"https://schema.org","@type":"GroceryStore","name":"BYAR ONLINE STORE","image":"https://byar-general-store.netlify.app/images/og-cover.jpg","url":"https://byar-general-store.netlify.app/","priceRange":"$"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--line);font-size
 <div class="awning"></div>
 <header>
   <div>
-    <h1>BYAR<br>GENERAL STORE</h1>
+    <h1>BYAR<br>ONLINE STORE</h1>
     <p>Everyday essentials. Pick your items and send the list to us on WhatsApp.</p>
   </div>
   <button class="cartbtn" id="openCart" data-en="Your list (" data-ur="آپ کی فہرست (">Your list (<span id="count">0</span>)</button>
@@ -106,11 +106,11 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--line);font-size
   <div class="total"><span id="totalLbl">Total</span><span id="total">0</span></div>
   <button class="order" id="order">Send order on WhatsApp</button>
 </aside>
-<footer>BYAR GENERAL STORE · Open daily · Sprint 10 release</footer>
+<footer>BYAR ONLINE STORE · Open daily · Sprint 10 release</footer>
 
 <script>
 // ---- Store settings: edit these ----
-const STORE = { name: "BYAR GENERAL STORE", whatsapp: "923199000856", currency: "Rs " }; // WhatsApp number: country code + number, digits only
+const STORE = { name: "BYAR ONLINE STORE", whatsapp: "923199000856", currency: "Rs " }; // WhatsApp number: country code + number, digits only
 // Products, hours and address live in products.json
 let PRODUCTS = [], INFO = {}, STOCK = {};
 const oos = p => p.inStock === false || STOCK[p.id] === 0;
