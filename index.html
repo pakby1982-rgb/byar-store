@@ -32,17 +32,35 @@
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.5}
 html[dir=rtl] body{font-family:"Noto Nastaliq Urdu","Bricolage Grotesque",system-ui,sans-serif;line-height:2}
 html[dir=rtl] aside{right:auto;left:0;border-left:none;border-right:4px solid var(--sun)}
-html[dir=rtl] .cartbtn{order:2}
 .awning{height:22px;background:repeating-linear-gradient(90deg,var(--green) 0 28px,#fff 28px 56px);border-bottom:4px solid var(--sun)}
-header{max-width:960px;margin:0 auto;padding:28px 20px 12px;display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.hero{max-width:960px;margin:0 auto;padding:0 20px}
+.shutter{position:relative;overflow:hidden;min-height:150px}
+.shutter-panel{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#ffffff 0 26px,var(--sun) 26px 52px);box-shadow:0 6px 18px rgba(0,0,0,.18);z-index:2;animation:roll-up 1.3s cubic-bezier(.7,0,.3,1) .4s forwards}
+.shutter-panel::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--sun)}
+@keyframes roll-up{to{transform:translateY(-100%)}}
+header{position:relative;padding:28px 0 12px;display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
 h1{margin:0;font-size:clamp(2rem,7vw,3.4rem);font-weight:800;line-height:1;letter-spacing:-.02em}
 header p{margin:6px 0 0;max-width:34ch}
+.hero-top{display:flex;justify-content:space-between;align-items:start;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
 .cartbtn{background:var(--green);color:#fff;border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer}
-main{max-width:960px;margin:0 auto;padding:8px 20px 80px}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
-input[type=search]{flex:1 1 200px;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--card);color:inherit}
-.chip{border:1px solid var(--line);background:var(--card);color:inherit;border-radius:8px;padding:9px 14px;font:inherit;cursor:pointer}
-.chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.promo{max-width:960px;margin:16px auto 0;padding:18px 20px;background:linear-gradient(120deg,var(--green),#134a37);color:#fff;border-radius:14px;display:flex;flex-wrap:wrap;gap:10px 22px}
+.promo span{font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px}
+.promo .new{background:var(--rust);color:#fff;border-radius:999px;padding:2px 10px;font-size:.72rem;letter-spacing:.02em}
+:root{--rust:#c1440e}
+.appbar{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line);padding:10px 20px}
+.appbar-row{max-width:960px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.appbar .brand{font-weight:800;font-size:1.05rem;white-space:nowrap;flex:0 0 auto}
+.appbar .cartbtn{padding:9px 14px;font-size:.85rem;flex:0 0 auto}
+.langbtn{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:inherit;border-radius:8px;padding:9px 12px;font:inherit;font-size:.8rem;cursor:pointer}
+main{max-width:960px;margin:0 auto;padding:8px 20px 90px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px}
+input[type=search]{flex:1 1 200px;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--paper);color:inherit}
+.cat-scroll{display:flex;gap:14px;overflow-x:auto;padding:10px 2px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cat-scroll::-webkit-scrollbar{display:none}
+.chip{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto;padding:0}
+.chip .ico{width:52px;height:52px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font-size:1.4rem}
+.chip[aria-pressed=true] .ico{background:var(--green);border-color:var(--green)}
+.chip span.lbl{font-size:.72rem;font-weight:600;max-width:64px;text-align:center;line-height:1.15}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 .item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:6px}
 .item h3{margin:0;font-size:1.05rem}
@@ -52,8 +70,16 @@ input[type=search]{flex:1 1 200px;padding:11px 14px;border:1px solid var(--line)
 .out{opacity:.6}.out .add{border-color:var(--line);color:inherit;cursor:not-allowed}.out .add:hover{background:transparent;color:inherit}
 .info{margin-top:36px;padding:20px;border:1px solid var(--line);border-left:4px solid var(--sun);border-radius:8px;background:var(--card)}
 .info h2{margin:0 0 6px}.info p{margin:2px 0}
-.add{margin-top:6px;border:2px solid var(--green);background:transparent;color:inherit;border-radius:8px;padding:8px;font:inherit;font-weight:600;cursor:pointer}
+.add{margin-top:6px;border:2px solid var(--green);background:transparent;color:inherit;border-radius:8px;padding:8px;font:inherit;font-weight:600;cursor:pointer;width:100%}
 .add:hover{background:var(--green);color:#fff}
+.stepper{margin-top:6px;display:flex;align-items:center;justify-content:space-between;border:2px solid var(--green);border-radius:8px;overflow:hidden}
+.stepper button{background:var(--green);color:#fff;border:0;width:36px;height:36px;font-size:1.1rem;cursor:pointer;font:inherit}
+.stepper .qv{font-weight:700}
+.cartbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--green);color:#fff;display:none;align-items:center;justify-content:space-between;padding:12px 20px;box-shadow:0 -4px 14px rgba(0,0,0,.18)}
+.cartbar.show{display:flex}
+.cartbar .cb-info{font-size:.85rem}
+.cartbar .cb-info b{font-size:1.05rem;display:block}
+.cartbar button{background:var(--sun);color:var(--ink);border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
 .empty{padding:40px 0;color:var(--green)}
 aside{position:fixed;inset:0 0 0 auto;width:min(380px,100%);background:var(--card);border-left:4px solid var(--sun);transform:translateX(100%);transition:transform .25s;padding:20px;display:flex;flex-direction:column;overflow:auto}
 aside.open{transform:none}
@@ -66,30 +92,51 @@ aside h2{margin:0 0 10px}
 .total{display:flex;justify-content:space-between;font-weight:800;font-size:1.2rem;margin:16px 0}
 .order{background:#25a244;color:#fff;border:0;border-radius:8px;padding:14px;font:inherit;font-weight:600;cursor:pointer}
 .close{align-self:flex-end;background:none;border:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline}
-footer{text-align:center;padding:24px;border-top:1px solid var(--line);font-size:.9rem}
+footer{text-align:center;padding:0 0 24px;border-top:1px solid var(--line);font-size:.9rem}
+.foot-links{max-width:960px;margin:0 auto;padding:24px 20px 12px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:.85rem}
+.foot-links a{color:inherit;text-decoration:none;opacity:.75}
+.foot-links a:hover{opacity:1;text-decoration:underline}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){aside{transition:none}}
+@media (prefers-reduced-motion:reduce){aside{transition:none}.shutter-panel{animation:none;display:none}}
 </style>
 </head>
 <body>
 <div class="awning"></div>
-<header>
-  <div>
-    <h1>BYAR<br>ONLINE STORE</h1>
-    <p>Everyday essentials. Pick your items and send the list to us on WhatsApp.</p>
+<div class="hero shutter">
+  <div class="shutter-panel" aria-hidden="true"></div>
+  <header class="hero-top">
+    <div>
+      <h1>BYAR<br>ONLINE STORE</h1>
+      <p>Everyday essentials, electronics &amp; audio — ordered in minutes, delivered by WhatsApp.</p>
+    </div>
+  </header>
+</div>
+<div class="promo">
+  <span>💬 Order by WhatsApp</span>
+  <span>🚲 Pickup or delivery</span>
+  <span>💳 Cash · JazzCash · Easypaisa · Bank transfer</span>
+  <span><span class="new">NEW</span> Computer Accessories &amp; Headphones</span>
+</div>
+<div class="appbar">
+  <div class="appbar-row">
+    <span class="brand">BYAR</span>
+    <input type="search" id="q" placeholder="Search items" aria-label="Search items">
+    <button class="cartbtn" id="openCart" data-en="Your list (" data-ur="آپ کی فہرست (">Your list (<span id="count">0</span>)</button>
+    <button class="langbtn" id="langBtn" aria-label="Switch language">اردو</button>
   </div>
-  <button class="cartbtn" id="openCart" data-en="Your list (" data-ur="آپ کی فہرست (">Your list (<span id="count">0</span>)</button>
-  <button class="chip" id="langBtn" aria-label="Switch language">اردو</button>
-</header>
+</div>
 <main>
   <div class="tools">
-    <input type="search" id="q" placeholder="Search items" aria-label="Search items">
-    <span id="chips" role="group" aria-label="Categories"></span>
+    <div class="cat-scroll" id="chips" role="group" aria-label="Categories"></div>
   </div>
   <div class="grid" id="grid"></div>
   <p class="empty" id="empty" hidden>No items match. Try another word or category.</p>
   <section class="info" id="info"></section>
 </main>
+<div class="cartbar" id="cartbar">
+  <div class="cb-info"><b id="cbTotal">Rs 0</b><span id="cbCount">0 items</span></div>
+  <button id="cbBtn">View list</button>
+</div>
 <aside id="cart" aria-label="Your list">
   <button class="close" id="closeCart" data-en="Close" data-ur="بند کریں">Close</button>
   <h2 id="cartTitle">Your list</h2>
@@ -106,7 +153,16 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--line);font-size
   <div class="total"><span id="totalLbl">Total</span><span id="total">0</span></div>
   <button class="order" id="order">Send order on WhatsApp</button>
 </aside>
-<footer>BYAR ONLINE STORE · Open daily · Sprint 10 release</footer>
+<footer>
+  <nav class="foot-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="refund.html">Return &amp; Refund Policy</a>
+  </nav>
+  <div>BYAR ONLINE STORE · Open daily</div>
+</footer>
 
 <script>
 // ---- Store settings: edit these ----
@@ -121,11 +177,11 @@ const STR = {
   en: { search:"Search items", empty:"No items match. Try another word or category.",
     add:"Add to list", out:"Out of stock", emptyCart:"Your list is empty. Add items from the store.",
     order:"Send order on WhatsApp", visit:"Visit us", hours:"Hours", address:"Address", phone:"Phone",
-    total:"Total", yourList:"Your list", name:"Your name", addr:"Delivery address", pickup:"Pickup", delivery:"Delivery", how:"How do you want it?" },
+    total:"Total", yourList:"Your list", name:"Your name", addr:"Delivery address", pickup:"Pickup", delivery:"Delivery", how:"How do you want it?", itemsWord:"items" },
   ur: { search:"چیزیں تلاش کریں", empty:"کوئی چیز نہیں ملی۔ دوسرا لفظ یا کیٹگری آزمائیں۔",
     add:"فہرست میں شامل کریں", out:"سٹاک ختم", emptyCart:"آپ کی فہرست خالی ہے۔ سٹور سے چیزیں شامل کریں۔",
     order:"واٹس ایپ پر آرڈر بھیجیں", visit:"ہم سے ملیں", hours:"اوقات", address:"پتہ", phone:"فون",
-    total:"کل رقم", yourList:"آپ کی فہرست", name:"آپ کا نام", addr:"ڈیلیوری کا پتہ", pickup:"خود لینا", delivery:"ڈیلیوری", how:"آپ کیسے لینا چاہتے ہیں؟" }
+    total:"کل رقم", yourList:"آپ کی فہرست", name:"آپ کا نام", addr:"ڈیلیوری کا پتہ", pickup:"خود لینا", delivery:"ڈیلیوری", how:"آپ کیسے لینا چاہتے ہیں؟", itemsWord:"اشیاء" }
 };
 let LANG = (localStorage.getItem("byar-lang") || "en");
 document.documentElement.dir = LANG === "ur" ? "rtl" : "ltr";
@@ -137,13 +193,23 @@ const money = n => STORE.currency + n.toFixed(2);
 const save = () => { try { localStorage.setItem("byar-cart", JSON.stringify(cart)); } catch (e) {} };
 
 function chips() {
+  const ICONS = { All:"🏬", Grocery:"🛒", Spices:"🌶️", "Dairy & Bakery":"🥛", Drinks:"🥤", Snacks:"🍪",
+    Household:"🧽", "Personal care":"🧴", Stationery:"✏️", "Computer Accessories":"🖱️", "Headphones & Earbuds":"🎧" };
   const cats = ["All", ...new Set(PRODUCTS.map(p => p.cat))];
-  $("chips").innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${c}">${c}</button>`).join(" ");
+  $("chips").innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${c}"><span class="ico">${ICONS[c] || "🏷️"}</span><span class="lbl">${c === "All" ? c : (LANG==="ur" ? (PRODUCTS.find(p=>p.cat===c)?.cat_ur || c) : c)}</span></button>`).join("");
 }
 function shop() {
   const q = $("q").value.trim().toLowerCase();
   const list = PRODUCTS.filter(p => (cat === "All" || p.cat === cat) && p.name.toLowerCase().includes(q));
-  $("grid").innerHTML = list.map(p => `<div class="item${oos(p)?' out':''}"><div class="ph"${p.image?` style="background-image:url('${p.image}')"`:""}>${p.image?"":p.name[0]}</div><small>${LANG==="ur"?(p.cat_ur||p.cat):p.cat}${STOCK[p.id] > 0 && STOCK[p.id] <= 5 ? " · " + STOCK[p.id] : ""}</small><h3>${LANG==="ur"?(p.name_ur||p.name):p.name}</h3><div class="price">${money(p.price)}</div><button class="add" data-id="${p.id}"${oos(p)?" disabled":""}>${oos(p)?T("out"):T("add")}</button></div>`).join("");
+  $("grid").innerHTML = list.map(p => {
+    const qty = cart[p.id] || 0;
+    const stock5 = STOCK[p.id] > 0 && STOCK[p.id] <= 5 ? " · " + STOCK[p.id] : "";
+    let control;
+    if (oos(p)) control = `<button class="add" disabled>${T("out")}</button>`;
+    else if (qty > 0) control = `<div class="stepper"><button data-sub="${p.id}" aria-label="Remove one">−</button><span class="qv">${qty}</span><button data-add="${p.id}" aria-label="Add one">+</button></div>`;
+    else control = `<button class="add" data-add="${p.id}">${T("add")}</button>`;
+    return `<div class="item${oos(p)?' out':''}"><div class="ph"${p.image?` style="background-image:url('${p.image}')"`:""}>${p.image?"":p.name[0]}</div><small>${LANG==="ur"?(p.cat_ur||p.cat):p.cat}${stock5}</small><h3>${LANG==="ur"?(p.name_ur||p.name):p.name}</h3><div class="price">${money(p.price)}</div>${control}</div>`;
+  }).join("");
   $("empty").hidden = list.length > 0;
   $("empty").textContent = T("empty");
   $("q").placeholder = T("search");
@@ -159,11 +225,19 @@ function basket() {
   $("total").textContent = money(total);
   $("count").textContent = n;
   $("order").disabled = !n;
+  $("cbTotal").textContent = money(total);
+  $("cbCount").textContent = `${n} ${T("itemsWord")}`;
+  $("cartbar").classList.toggle("show", n > 0);
   save();
 }
 $("chips").onclick = e => { if (e.target.dataset.c) { cat = e.target.dataset.c; chips(); shop(); } };
 $("q").oninput = shop;
-$("grid").onclick = e => { const id = e.target.dataset.id; if (id) { cart[id] = (cart[id] || 0) + 1; basket(); } };
+$("grid").onclick = e => {
+  const add = e.target.dataset.add, sub = e.target.dataset.sub;
+  if (add) cart[add] = (cart[add] || 0) + 1;
+  if (sub) cart[sub] = Math.max(0, (cart[sub] || 0) - 1);
+  if (add || sub) { shop(); basket(); }
+};
 $("lines").onclick = e => {
   const { p, m } = e.target.dataset;
   if (p) cart[p]++;
@@ -171,6 +245,7 @@ $("lines").onclick = e => {
   basket();
 };
 $("openCart").onclick = () => $("cart").classList.add("open");
+$("cbBtn").onclick = () => $("cart").classList.add("open");
 $("closeCart").onclick = () => $("cart").classList.remove("open");
 const mode = () => document.querySelector('input[name=mode]:checked').value;
 document.querySelectorAll('input[name=mode]').forEach(r => r.onchange = () => { $("addr").hidden = mode() !== "Delivery"; });
